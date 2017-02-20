@@ -31,10 +31,12 @@ module.exports = {
                 use: 'css-loader',
                 fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
               }),
+              {{#less}}
               less: ExtractTextPlugin.extract({
                 use: 'css-loader!less-loader',
                 fallback: 'vue-style-loader'
               })
+              {{/less}}
             }
             : {}
           // other vue-loader options go here
