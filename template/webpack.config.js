@@ -5,8 +5,15 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    publicPath: 'http://localhost:8080/dist/',
+    filename: '[name].js'
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+    proxy: {
+      "**": "http://localhost:8888/"
+    }
   },
   module: {
     rules: [
@@ -44,10 +51,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.common.js'
     }
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
   },
   performance: {
     hints: false
