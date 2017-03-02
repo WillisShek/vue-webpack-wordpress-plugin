@@ -16,7 +16,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     proxy: {
-      "**": "http://localhost:8888/"
+      "**": "{{ local-server }}"
     }
   },
   module: {
