@@ -19,6 +19,11 @@
        "type": "confirm",
        "message": "Use less?",
        "default": false
+    },
+    "local-server": {
+      "type": "string",
+      "label": "Local Site's dev server (MAMP) URL",
+      "default": "http://localhost:8888/"
     }
   },
   "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}"
