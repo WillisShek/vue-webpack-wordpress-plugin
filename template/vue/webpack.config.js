@@ -12,13 +12,6 @@ module.exports = {
     publicPath: 'http://localhost:8080/assets/',
     filename: '[name].js'
   },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    proxy: {
-      "**": "{{ local-server }}"
-    }
-  },
   module: {
     rules: [
       {
@@ -57,7 +50,14 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+    proxy: {
+      "**": "{{ local-server }}"
     }
   },
   performance: {
@@ -68,8 +68,7 @@ module.exports = {
 
 if ( isProduction ) {
   
-  module.exports.devtool = '#source-map'
-  
+  module.exports.devtool = '#source-map';
   
   module.exports.output.publicPath = './wp-content/themes/{{ name }}/assets/';
   
