@@ -8,8 +8,8 @@ var isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: 'http://localhost:8080/dist/',
+    path: path.resolve(__dirname, '../assets'),
+    publicPath: 'http://localhost:8080/assets/',
     filename: '[name].js'
   },
   devServer: {
@@ -39,7 +39,6 @@ module.exports = {
               {{/less}}
             }
             : {}
-          // other vue-loader options go here
         }
       },
       {
@@ -70,6 +69,10 @@ module.exports = {
 if ( isProduction ) {
   
   module.exports.devtool = '#source-map'
+  
+  
+  module.exports.output.publicPath = './wp-content/themes/{{ name }}/assets/';
+  
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({

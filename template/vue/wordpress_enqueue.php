@@ -51,11 +51,11 @@ function vue_theme_scripts() {
   $root = get_stylesheet_directory_uri();
   
   if ( is_super_admin() && !empty($_SESSION) && $_SESSION['__devReload'] ) {
-    wp_enqueue_script('main-dev', 'http://' . $dev_server . ':8080/dist/main.js', NULL, NULL, TRUE);
+    wp_enqueue_script('main-dev', 'http://' . $dev_server . ':8080/assets/main.js', NULL, NULL, TRUE);
   } else {
-    wp_enqueue_style( 'main', $root . '/dist/style.css', NULL, THEME_VERSION, 'all' );
-  	wp_enqueue_script('vendor', $root . '/dist/vendor.js', NULL, THEME_VERSION, TRUE);
-  	wp_enqueue_script('main', $root . '/dist/main.js', array('vendor'), THEME_VERSION, TRUE);
+    wp_enqueue_style( 'main', $root . '/assets/style.css', NULL, THEME_VERSION, 'all' );
+  	wp_enqueue_script('vendor', $root . '/assets/vendor.js', NULL, THEME_VERSION, TRUE);
+  	wp_enqueue_script('main', $root . '/assets/main.js', array('vendor'), THEME_VERSION, TRUE);
   }
 }
 
