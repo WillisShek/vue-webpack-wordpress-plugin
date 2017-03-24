@@ -11,7 +11,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 ``` bash
 $ npm install -g vue-cli
 $ vue init shshaw/webpack-wordpress my-project
-$ cd my-project
+$ cd my-project/vue
 $ npm install
 $ npm run dev
 ```
