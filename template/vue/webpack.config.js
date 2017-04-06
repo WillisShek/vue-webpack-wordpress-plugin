@@ -49,6 +49,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: [".js", ".vue", ".json"],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -63,7 +64,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new webpack.NamedModulesPlugin()
+  ]
 }
 
 if ( isProduction ) {
