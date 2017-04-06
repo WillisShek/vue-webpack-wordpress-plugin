@@ -1,4 +1,4 @@
-# vue-webpack-wordpress
+# ![vue-webpack-wordpress](https://github.com/shshaw/vue-webpack-wordpress/blob/master/template/screenshot.png)
 
 > A simple Vue 2.0 Webpack & `vue-loader` setup for Wordpress Themes.
 
