@@ -9,21 +9,22 @@
       "type": "string",
       "required": true,
       "label": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Vue.js Webpack Wordpress project"
     },
     "author": {
       "type": "string",
       "label": "Author"
     },
-    "less": {
-       "type": "confirm",
-       "message": "Use less?",
-       "default": false
+    "preprocessor": {
+      "message": "Use a CSS pre-processor?",
+      "type": "list",
+      "choices": ["None", "LESS", "Sass"],
+      "default": "None"
     },
     "local-server": {
       "type": "string",
-      "label": "Local Site's dev server (MAMP) URL",
-      "default": "http://localhost:8888/"
+      "label": "Local Site's dev server (MAMP) URL ( e.g. http://localhost:8888/, http://mysite.dev )",
+      "default": false
     }
   },
   "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev.{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev.{{/inPlace}}"

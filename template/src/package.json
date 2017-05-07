@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.2.1"
+    "vue": "^2.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -17,12 +17,16 @@
     "babel-preset-latest": "^6.0.0",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
-    "extract-text-webpack-plugin": "^2.0.0-rc.2",
+    "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
-    {{#less}}
+    {{#if_eq preprocessor "LESS"}}
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
-    {{/less}}
+    {{/if_eq}}
+    {{#if_eq preprocessor "Sass"}}
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    {{/if_eq}}
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "vue-loader": "^11.1.4",
     "vue-template-compiler": "^2.2.1",

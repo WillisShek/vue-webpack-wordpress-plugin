@@ -2,11 +2,10 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
 var isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './main.js',
   output: {
     path: path.resolve(__dirname, '../assets'),
     publicPath: 'http://localhost:8080/assets/',
@@ -20,16 +19,17 @@ module.exports = {
         options: {
           loaders: 
             isProduction ? {
-              css: ExtractTextPlugin.extract({
-                use: 'css-loader',
-                fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
-              }),
-              {{#less}}
-              less: ExtractTextPlugin.extract({
-                use: 'css-loader!less-loader',
-                fallback: 'vue-style-loader'
-              })
-              {{/less}}
+              'css': 'vue-style-loader!css-loader',
+              {{#if_eq preprocessor "LESS"}}
+              'less': 'vue-style-loader!css-loader!less-loader',
+              {{/if_eq}}
+              {{#if_eq preprocessor "Sass"}}
+              // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+              // the "scss" and "sass" values for the lang attribute to the right configs here.
+              // other preprocessors should work out of the box, no loader config like this necessary.
+              'scss': 'vue-style-loader!css-loader!sass-loader',
+              'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+              {{/if_eq}}
             }
             : {}
         }
@@ -56,10 +56,11 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
+    noInfo: true{{#local-server}},
     proxy: {
       "**": "{{ local-server }}"
     }
+    {{/local-server}}
   },
   performance: {
     hints: false
