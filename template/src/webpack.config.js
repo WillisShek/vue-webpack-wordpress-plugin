@@ -74,7 +74,10 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true{{#local-server}},
+    noInfo: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    }{{#local-server}},
     proxy: {
       "**": "{{ local-server }}"
     }
