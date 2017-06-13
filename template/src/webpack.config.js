@@ -25,16 +25,28 @@ module.exports = {
         options: {
           loaders: 
             isProduction ? {
-              'css': 'vue-style-loader!css-loader',
+              'css': ExtractTextPlugin.extract({ 
+                  fallback: 'vue-style-loader',
+                  use: 'css-loader' 
+                }),
               {{#if_eq preprocessor "LESS"}}
-              'less': 'vue-style-loader!css-loader!less-loader',
+              'less': ExtractTextPlugin.extract({ 
+                  fallback: 'vue-style-loader',
+                  use: 'css-loader!less-loader' 
+                }),
               {{/if_eq}}
               {{#if_eq preprocessor "Sass"}}
               // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
               // the "scss" and "sass" values for the lang attribute to the right configs here.
               // other preprocessors should work out of the box, no loader config like this necessary.
-              'scss': 'vue-style-loader!css-loader!sass-loader',
-              'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+              'scss': ExtractTextPlugin.extract({ 
+                  fallback: 'vue-style-loader',
+                  use: 'css-loader!sass-loader' 
+                }),
+              'sass': ExtractTextPlugin.extract({ 
+                  fallback: 'vue-style-loader',
+                  use: 'css-loader!sass-loader?indentedSyntax' 
+                })
               {{/if_eq}}
             }
             : {}
