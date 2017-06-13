@@ -4,6 +4,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var isProduction = process.env.NODE_ENV === 'production';
 
+{{#webpack-dashboard}}
+var Dashboard = require('webpack-dashboard');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+var dashboard = new Dashboard();
+{{/webpack-dashboard}}
+
 module.exports = {
   entry: './main.js',
   output: {
@@ -67,7 +73,8 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   plugins: [
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(){{#webpack-dashboard}},
+    new DashboardPlugin(dashboard.setData){{/webpack-dashboard}}
   ]
 }
 
