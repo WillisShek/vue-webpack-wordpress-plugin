@@ -79,7 +79,7 @@ module.exports = {
       'Access-Control-Allow-Origin': '*',
     }{{#local-server}},
     proxy: {
-      "**": "{{ local-server }}"
+      "**": "{{ ../local-server }}"
     }
     {{/local-server}}
   },
