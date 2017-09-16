@@ -9,7 +9,7 @@
       "type": "string",
       "required": true,
       "label": "Project description",
-      "default": "A Vue.js Webpack Wordpress project"
+      "default": "A Vue.js Webpack templage for a WordPress plugin"
     },
     "author": {
       "type": "string",
@@ -19,7 +19,7 @@
       "message": "Use a CSS pre-processor?",
       "type": "list",
       "choices": ["None", "LESS", "Sass"],
-      "default": "None"
+      "default": "Sass"
     },
     "local-server": {
       "type": "string",
