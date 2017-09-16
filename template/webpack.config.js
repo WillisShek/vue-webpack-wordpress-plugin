@@ -11,7 +11,7 @@ var dashboard = new Dashboard();
 {{/webpack-dashboard}}
 
 module.exports = {
-  entry: './main.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, '../assets'),
     publicPath: 'http://localhost:8080/assets/',
