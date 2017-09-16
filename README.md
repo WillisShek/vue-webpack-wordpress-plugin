@@ -10,6 +10,7 @@ Forked from: [https://github.com/caldera-learn/vue-webpack-wordpress-plugin](htt
 
 This is a project template for [vue-cli](https://github.com/vuejs/vue-cli).
 
+#### Install
 ``` bash
 $ npm install -g vue-cli
 $ vue init caldera-learn/vue-webpack-wordpress-plugin my-project
@@ -17,6 +18,16 @@ $ cd my-project/vue
 $ npm install
 $ npm run dev
 ```
+
+#### Use in the WordPress
+* Put `<div id="app"></div>` somewhere -- admin page, the_content() whatever...
+
+### BTW:
+
+* webpack_enqueue is an example of how to enqueue the built scripts.
+* You should probably change constants and function prefixes.
+* Josh will probably make a full boilerplate out of this at some point.
+* Live reload doesn't work for Josh so he removed it.
 
 ### What's Included
 
