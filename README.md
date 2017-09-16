@@ -1,10 +1,10 @@
-# ![vue-webpack-wordpress](https://github.com/shshaw/vue-webpack-wordpress/blob/master/template/screenshot.png)
+# ![vue-webpack-wordpress](https://github.com/caldera-learn/vue-webpack-wordpress-plugin/blob/master/tvue-logo-caldera.png)
 
 > A simple Vue 2.0 Webpack & `vue-loader` setup for WorddPress
 
 > This template is Vue 2.0 compatible.
 
-Forked from: [https://github.com/caldera-learn/vue-webpack-wordpress-plugin](https://github.com/caldera-learn/vue-webpack-wordpress-plugin)
+Forked from: [https://github.com/shshaw/vue-webpack-wordpress](https://github.com/shshaw/vue-webpack-wordpress)
 
 ### Usage
 
