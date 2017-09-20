@@ -13,7 +13,7 @@ var dashboard = new Dashboard();
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '../assets'),
+    path: path.resolve(__dirname, './assets'),
     publicPath: 'http://localhost:8080/assets/',
     filename: '[name].js'
   },
